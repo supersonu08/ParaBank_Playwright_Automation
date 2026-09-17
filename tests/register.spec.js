@@ -173,4 +173,66 @@ test.describe('ParaBank Registration', () => {
         ).toBeVisible();
     });
 
+    test('TC06 - Register with a username that already exists', async ({ page }) => {
+
+        const username = `naveen_${Date.now()}`;
+
+        // First registration - succeeds and consumes the username
+        await registerPage.fillPersonalInfo(
+            'Naveen',
+            'Pargi',
+            '123 Main Street',
+            'Jaipur'
+        );
+
+        await registerPage.fillAddressInfo(
+            'Rajasthan',
+            '302001',
+            '9876543210',
+            '123456789'
+        );
+
+        await registerPage.fillCredentials(
+            username,
+            'Password@123',
+            'Password@123'
+        );
+
+        await registerPage.clickRegisterButton();
+        await expect(page.locator('#rightPanel h1')).toContainText('Welcome');
+
+        // Second registration with the same username should fail on server-side validation
+        await page.goto('https://parabank.parasoft.com/parabank/register.htm');
+
+        await registerPage.fillPersonalInfo(
+            'Naveen',
+            'Pargi',
+            '123 Main Street',
+            'Jaipur'
+        );
+
+        await registerPage.fillAddressInfo(
+            'Rajasthan',
+            '302001',
+            '9876543211',
+            '987654321'
+        );
+
+        await registerPage.fillCredentials(
+            username,
+            'Password@123',
+            'Password@123'
+        );
+
+        await registerPage.clickRegisterButton();
+
+        await expect(
+            page.locator('#customer\\.username\\.errors')
+        ).toBeVisible();
+
+        await expect(
+            page.locator('#customer\\.username\\.errors')
+        ).toContainText('already exists');
+    });
+
 });
