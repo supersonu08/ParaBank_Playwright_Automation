@@ -15,6 +15,11 @@ export class LoginPage {
 
     async navigateToSite() {
         await this.page.goto("https://parabank.parasoft.com/parabank/index.htm");
+        await Promise.all([
+            this.usernameInput.waitFor({ state: 'visible' }),
+            this.passwordInput.waitFor({ state: 'visible' }),
+            this.registerLink.waitFor({ state: 'visible' })
+        ]);
     }
 
     async enterUsername(username) {

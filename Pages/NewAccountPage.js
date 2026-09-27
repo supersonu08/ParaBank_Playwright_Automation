@@ -30,7 +30,11 @@ export class NewAccountPage {
 
     async clickSIDEOpenNewAccountButton() {
         await this.sideOpenNewAccountlink.click();
-        await expect(this.fromAccountDropdown.getByRole('option')).not.toHaveCount(0);
+        await this.fromAccountDropdown
+            .locator('option')
+            .filter({ hasText: /^\d+$/ })
+            .first()
+            .waitFor({ state: 'attached' });
     }
 
     async clickNewACCbtn() {
