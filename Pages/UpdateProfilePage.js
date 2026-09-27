@@ -19,7 +19,7 @@ export class UpdateProfilePage {
 
     async open() {
         await this.page.goto('https://parabank.parasoft.com/parabank/updateprofile.htm');
-        await expect(this.firstName).toBeVisible();
+        await expect(this.firstName).toHaveValue(/\S+/);
     }
 
     async fillContactInfo({

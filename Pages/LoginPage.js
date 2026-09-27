@@ -3,9 +3,8 @@ export class LoginPage {
     constructor(page) {
         this.page = page;
 
-        // The live login form exposes two unnamed textboxes with no labels or placeholders.
-        this.usernameInput = page.getByRole('textbox').nth(0);
-        this.passwordInput = page.getByRole('textbox').nth(1);
+        this.usernameInput = page.locator('#loginPanel input[name="username"]');
+        this.passwordInput = page.locator('#loginPanel input[name="password"]');
         this.loginButton = page.getByRole('button', { name: 'Log In', exact: true });
         this.logoutLink = page.getByRole('link', { name: 'Log Out', exact: true });
         this.forgotLoginLink = page.getByRole('link', { name: 'Forgot login info?', exact: true });
