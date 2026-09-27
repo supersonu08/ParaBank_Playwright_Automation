@@ -1,0 +1,118 @@
+- generic [active] [ref=f10e1]:
+  - generic [ref=f10e2]:
+    - generic [ref=f10e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=f10e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=f10e5] [cursor=pointer]
+      - paragraph [ref=f10e6]: Experience the difference
+    - generic [ref=f10e7]:
+      - list [ref=f10e8]:
+        - listitem [ref=f10e9]: Solutions
+        - listitem [ref=f10e10]:
+          - link "About Us" [ref=f10e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f10e12]:
+          - link "Services" [ref=f10e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=f10e14]:
+          - link "Products" [ref=f10e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=f10e16]:
+          - link "Locations" [ref=f10e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=f10e18]:
+          - link "Admin Page" [ref=f10e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=f10e20]:
+        - listitem [ref=f10e21]:
+          - link "home" [ref=f10e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=f10e23]:
+          - link "about" [ref=f10e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f10e25]:
+          - link "contact" [ref=f10e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=f10e27]:
+      - generic [ref=f10e28]:
+        - paragraph [ref=f10e29]: Welcome Locator Probe
+        - heading "Account Services" [level=2] [ref=f10e30]
+        - list [ref=f10e31]:
+          - listitem [ref=f10e32]:
+            - link "Open New Account" [ref=f10e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=f10e34]:
+            - link "Accounts Overview" [ref=f10e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=f10e36]:
+            - link "Transfer Funds" [ref=f10e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=f10e38]:
+            - link "Bill Pay" [ref=f10e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=f10e40]:
+            - link "Find Transactions" [ref=f10e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=f10e42]:
+            - link "Update Contact Info" [ref=f10e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=f10e44]:
+            - link "Request Loan" [ref=f10e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=f10e46]:
+            - link "Log Out" [ref=f10e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=f10e50]:
+        - heading "Accounts Overview" [level=1] [ref=f10e51]
+        - table [ref=f10e52]:
+          - rowgroup [ref=f10e53]:
+            - row [ref=f10e54]:
+              - columnheader "Account" [ref=f10e55]
+              - columnheader "Balance*" [ref=f10e56]
+              - columnheader "Available Amount" [ref=f10e57]
+          - rowgroup
+          - rowgroup [ref=f10e58]:
+            - row [ref=f10e59]:
+              - cell "*Balance includes deposits that may be subject to holds" [ref=f10e60]
+  - generic [ref=f10e62]:
+    - list [ref=f10e63]:
+      - listitem [ref=f10e64]:
+        - link "Home" [ref=f10e65] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=f10e66]:
+        - link "About Us" [ref=f10e67] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=f10e68]:
+        - link "Services" [ref=f10e69] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=f10e70]:
+        - link "Products" [ref=f10e71] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=f10e72]:
+        - link "Locations" [ref=f10e73] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=f10e74]:
+        - link "Forum" [ref=f10e75] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=f10e76]:
+        - link "Site Map" [ref=f10e77] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=f10e78]:
+        - link "Contact Us" [ref=f10e79] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=f10e80]: © Parasoft. All rights reserved.
+    - list [ref=f10e81]:
+      - listitem [ref=f10e82]: "Visit us at:"
+      - listitem [ref=f10e83]:
+        - link "www.parasoft.com" [ref=f10e84] [cursor=pointer]:
+          - /url: http://www.parasoft.com/

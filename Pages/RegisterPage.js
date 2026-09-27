@@ -3,18 +3,24 @@ export class RegisterPage {
     constructor(page) {
         this.page = page;
 
-        this.firstName = page.locator("#customer\\.firstName");
-        this.lastName = page.locator("#customer\\.lastName");
-        this.address = page.locator("#customer\\.address\\.street");
-        this.city = page.locator("#customer\\.address\\.city");
-        this.state = page.locator("#customer\\.address\\.state");
-        this.zipCode = page.locator("#customer\\.address\\.zipCode");
-        this.phoneNumber = page.locator("#customer\\.phoneNumber");
-        this.ssn = page.locator("#customer\\.ssn");
-        this.username = page.locator("#customer\\.username");
-        this.password = page.locator("#customer\\.password");
-        this.confirmPassword = page.locator("#repeatedPassword");
-        this.registerButton = page.locator("input[value='Register']");
+        this.firstName = page.getByRole('row', { name: 'First Name:', exact: true }).getByRole('textbox');
+        this.lastName = page.getByRole('row', { name: 'Last Name:', exact: true }).getByRole('textbox');
+        this.address = page.getByRole('row', { name: 'Address:', exact: true }).getByRole('textbox');
+        this.city = page.getByRole('row', { name: 'City:', exact: true }).getByRole('textbox');
+        this.state = page.getByRole('row', { name: 'State:', exact: true }).getByRole('textbox');
+        this.zipCode = page.getByRole('row', { name: 'Zip Code:', exact: true }).getByRole('textbox');
+        this.phoneNumber = page.getByRole('row', { name: 'Phone #:', exact: true }).getByRole('textbox');
+        this.ssn = page.getByRole('row', { name: 'SSN:', exact: true }).getByRole('textbox');
+        this.username = page.getByRole('row', { name: 'Username:', exact: true }).getByRole('textbox');
+        this.password = page.getByRole('row', { name: 'Password:', exact: true }).getByRole('textbox');
+        this.confirmPassword = page.getByRole('row', { name: 'Confirm:', exact: true }).getByRole('textbox');
+        this.registerButton = page.getByRole('button', { name: 'Register', exact: true });
+        this.welcomeHeading = page.getByRole('heading', { name: /^Welcome/ });
+        this.firstNameRequiredMessage = page.getByText('First name is required.', { exact: true });
+        this.lastNameRequiredMessage = page.getByText('Last name is required.', { exact: true });
+        this.usernameRequiredMessage = page.getByText('Username is required.', { exact: true });
+        this.passwordMismatchMessage = page.getByText('Passwords did not match.', { exact: true });
+        this.usernameExistsMessage = page.getByText('This username already exists.', { exact: true });
     }
 
     async fillPersonalInfo(firstName, lastName, address, city) {
@@ -32,10 +38,10 @@ export class RegisterPage {
     }
 
     async fillCredentials(username, password, confirmPassword) {
-    await this.username.fill(username);
-    await this.password.fill(password);
-    await this.confirmPassword.fill(confirmPassword);
-}
+        await this.username.fill(username);
+        await this.password.fill(password);
+        await this.confirmPassword.fill(confirmPassword);
+    }
 
     async clickRegisterButton() {
         await this.registerButton.click();

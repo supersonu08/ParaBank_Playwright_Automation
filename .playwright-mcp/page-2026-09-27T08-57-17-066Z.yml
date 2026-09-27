@@ -1,0 +1,170 @@
+- generic [active] [ref=f9e1]:
+  - generic [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=f9e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=f9e5] [cursor=pointer]
+      - paragraph [ref=f9e6]: Experience the difference
+    - generic [ref=f9e7]:
+      - list [ref=f9e8]:
+        - listitem [ref=f9e9]: Solutions
+        - listitem [ref=f9e10]:
+          - link "About Us" [ref=f9e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f9e12]:
+          - link "Services" [ref=f9e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=f9e14]:
+          - link "Products" [ref=f9e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=f9e16]:
+          - link "Locations" [ref=f9e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=f9e18]:
+          - link "Admin Page" [ref=f9e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=f9e20]:
+        - listitem [ref=f9e21]:
+          - link "home" [ref=f9e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=f9e23]:
+          - link "about" [ref=f9e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f9e25]:
+          - link "contact" [ref=f9e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=f9e27]:
+      - generic [ref=f9e28]:
+        - paragraph [ref=f9e29]: Welcome Locator Probe
+        - heading "Account Services" [level=2] [ref=f9e30]
+        - list [ref=f9e31]:
+          - listitem [ref=f9e32]:
+            - link "Open New Account" [ref=f9e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=f9e34]:
+            - link "Accounts Overview" [ref=f9e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=f9e36]:
+            - link "Transfer Funds" [ref=f9e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=f9e38]:
+            - link "Bill Pay" [ref=f9e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=f9e40]:
+            - link "Find Transactions" [ref=f9e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=f9e42]:
+            - link "Update Contact Info" [ref=f9e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=f9e44]:
+            - link "Request Loan" [ref=f9e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=f9e46]:
+            - link "Log Out" [ref=f9e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=f9e49]:
+        - generic [ref=f9e50]:
+          - heading "Account Details" [level=1] [ref=f9e51]
+          - table [ref=f9e52]:
+            - rowgroup [ref=f9e53]:
+              - row [ref=f9e54]:
+                - cell "Account Number:" [ref=f9e55]
+                - cell "14121" [ref=f9e56]
+              - row [ref=f9e57]:
+                - cell "Account Type:" [ref=f9e58]
+                - cell "CHECKING" [ref=f9e59]
+              - row [ref=f9e60]:
+                - cell "Balance:" [ref=f9e61]
+                - cell "$100.00" [ref=f9e62]
+              - row [ref=f9e63]:
+                - cell "Available:" [ref=f9e64]
+                - cell "$100.00" [ref=f9e65]
+        - generic [ref=f9e66]:
+          - heading "Account Activity" [level=1] [ref=f9e67]
+          - table [ref=f9e69]:
+            - rowgroup [ref=f9e70]:
+              - row [ref=f9e71]:
+                - cell "Activity Period:" [ref=f9e72]
+                - cell "All" [ref=f9e73]:
+                  - combobox [ref=f9e74]:
+                    - option "All" [selected]
+                    - option "January"
+                    - option "February"
+                    - option "March"
+                    - option "April"
+                    - option "May"
+                    - option "June"
+                    - option "July"
+                    - option "August"
+                    - option "September"
+                    - option "October"
+                    - option "November"
+                    - option "December"
+              - row [ref=f9e75]:
+                - cell "Type:" [ref=f9e76]
+                - cell "All" [ref=f9e77]:
+                  - combobox [ref=f9e78]:
+                    - option "All" [selected]
+                    - option "Credit"
+                    - option "Debit"
+              - row [ref=f9e79]:
+                - cell [ref=f9e80]
+                - cell [ref=f9e81]:
+                  - button "Go" [ref=f9e82] [cursor=pointer]
+          - table [ref=f9e83]:
+            - rowgroup [ref=f9e84]:
+              - row [ref=f9e85]:
+                - columnheader "Date" [ref=f9e86]
+                - columnheader "Transaction" [ref=f9e87]
+                - columnheader "Debit (-)" [ref=f9e88]
+                - columnheader "Credit (+)" [ref=f9e89]
+            - rowgroup [ref=f9e90]:
+              - row [ref=f9e91]:
+                - cell "09-27-2026" [ref=f9e92]
+                - cell [ref=f9e93]:
+                  - link "Funds Transfer Received" [ref=f9e94] [cursor=pointer]:
+                    - /url: transaction.htm?id=15031
+                - cell [ref=f9e95]
+                - cell "$100.00" [ref=f9e96]
+  - generic [ref=f9e98]:
+    - list [ref=f9e99]:
+      - listitem [ref=f9e100]:
+        - link "Home" [ref=f9e101] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=f9e102]:
+        - link "About Us" [ref=f9e103] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=f9e104]:
+        - link "Services" [ref=f9e105] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=f9e106]:
+        - link "Products" [ref=f9e107] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=f9e108]:
+        - link "Locations" [ref=f9e109] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=f9e110]:
+        - link "Forum" [ref=f9e111] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=f9e112]:
+        - link "Site Map" [ref=f9e113] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=f9e114]:
+        - link "Contact Us" [ref=f9e115] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=f9e116]: © Parasoft. All rights reserved.
+    - list [ref=f9e117]:
+      - listitem [ref=f9e118]: "Visit us at:"
+      - listitem [ref=f9e119]:
+        - link "www.parasoft.com" [ref=f9e120] [cursor=pointer]:
+          - /url: http://www.parasoft.com/

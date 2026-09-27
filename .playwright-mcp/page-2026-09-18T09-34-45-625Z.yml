@@ -1,0 +1,162 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - generic [ref=f4e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=f4e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=f4e5] [cursor=pointer]
+      - paragraph [ref=f4e6]: Experience the difference
+    - generic [ref=f4e7]:
+      - list [ref=f4e8]:
+        - listitem [ref=f4e9]: Solutions
+        - listitem [ref=f4e10]:
+          - link "About Us" [ref=f4e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f4e12]:
+          - link "Services" [ref=f4e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=f4e14]:
+          - link "Products" [ref=f4e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=f4e16]:
+          - link "Locations" [ref=f4e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=f4e18]:
+          - link "Admin Page" [ref=f4e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=f4e20]:
+        - listitem [ref=f4e21]:
+          - link "home" [ref=f4e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=f4e23]:
+          - link "about" [ref=f4e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f4e25]:
+          - link "contact" [ref=f4e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=f4e27]:
+      - generic [ref=f4e28]:
+        - paragraph [ref=f4e29]: Welcome MCP Tester
+        - heading "Account Services" [level=2] [ref=f4e30]
+        - list [ref=f4e31]:
+          - listitem [ref=f4e32]:
+            - link "Open New Account" [ref=f4e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=f4e34]:
+            - link "Accounts Overview" [ref=f4e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=f4e36]:
+            - link "Transfer Funds" [ref=f4e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=f4e38]:
+            - link "Bill Pay" [ref=f4e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=f4e40]:
+            - link "Find Transactions" [ref=f4e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=f4e42]:
+            - link "Update Contact Info" [ref=f4e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=f4e44]:
+            - link "Request Loan" [ref=f4e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=f4e46]:
+            - link "Log Out" [ref=f4e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=f4e50]:
+        - heading "Find Transactions" [level=1] [ref=f4e51]
+        - generic [ref=f4e52]:
+          - generic [ref=f4e53]:
+            - text: "Select an account:"
+            - combobox [ref=f4e54]:
+              - option "17562" [selected]
+              - option "19227"
+              - option "19338"
+              - option "19560"
+              - option "19782"
+              - option "20226"
+              - option "20337"
+              - option "20448"
+              - option "20559"
+              - option "20670"
+              - option "20781"
+              - option "21669"
+              - option "21558"
+              - option "22002"
+              - option "22113"
+              - option "22224"
+              - option "22335"
+              - option "22446"
+              - option "22557"
+              - option "22668"
+              - option "22779"
+              - option "14787"
+              - option "25887"
+              - option "25998"
+          - separator [ref=f4e55]
+          - generic [ref=f4e56]:
+            - text: "Find by Transaction ID:"
+            - textbox [ref=f4e57]
+          - button "Find Transactions" [ref=f4e59] [cursor=pointer]
+          - separator [ref=f4e60]
+          - generic [ref=f4e61]:
+            - text: "Find by Date:"
+            - textbox [ref=f4e62]
+            - text: ( MM-DD-YYYY )
+          - button "Find Transactions" [ref=f4e64] [cursor=pointer]
+          - separator [ref=f4e65]
+          - generic [ref=f4e66]:
+            - paragraph [ref=f4e67]: Find by Date Range
+            - generic [ref=f4e68]:
+              - text: Between
+              - textbox [ref=f4e69]
+              - text: and
+              - textbox [ref=f4e70]
+              - text: ( MM-DD-YYYY )
+          - button "Find Transactions" [ref=f4e72] [cursor=pointer]
+          - separator [ref=f4e73]
+          - generic [ref=f4e74]:
+            - text: "Find by Amount:"
+            - textbox [ref=f4e75]
+          - button "Find Transactions" [ref=f4e77] [cursor=pointer]
+  - generic [ref=f4e79]:
+    - list [ref=f4e80]:
+      - listitem [ref=f4e81]:
+        - link "Home" [ref=f4e82] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=f4e83]:
+        - link "About Us" [ref=f4e84] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=f4e85]:
+        - link "Services" [ref=f4e86] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=f4e87]:
+        - link "Products" [ref=f4e88] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=f4e89]:
+        - link "Locations" [ref=f4e90] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=f4e91]:
+        - link "Forum" [ref=f4e92] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=f4e93]:
+        - link "Site Map" [ref=f4e94] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=f4e95]:
+        - link "Contact Us" [ref=f4e96] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=f4e97]: © Parasoft. All rights reserved.
+    - list [ref=f4e98]:
+      - listitem [ref=f4e99]: "Visit us at:"
+      - listitem [ref=f4e100]:
+        - link "www.parasoft.com" [ref=f4e101] [cursor=pointer]:
+          - /url: http://www.parasoft.com/

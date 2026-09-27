@@ -1,0 +1,150 @@
+- generic [active] [ref=f5e1]:
+  - generic [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - link:
+        - /url: admin.htm
+        - img [ref=f5e4] [cursor=pointer]
+      - link "ParaBank":
+        - /url: index.htm
+        - img "ParaBank" [ref=f5e5] [cursor=pointer]
+      - paragraph [ref=f5e6]: Experience the difference
+    - generic [ref=f5e7]:
+      - list [ref=f5e8]:
+        - listitem [ref=f5e9]: Solutions
+        - listitem [ref=f5e10]:
+          - link "About Us" [ref=f5e11] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f5e12]:
+          - link "Services" [ref=f5e13] [cursor=pointer]:
+            - /url: services.htm
+        - listitem [ref=f5e14]:
+          - link "Products" [ref=f5e15] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/products.jsp
+        - listitem [ref=f5e16]:
+          - link "Locations" [ref=f5e17] [cursor=pointer]:
+            - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - listitem [ref=f5e18]:
+          - link "Admin Page" [ref=f5e19] [cursor=pointer]:
+            - /url: admin.htm
+      - list [ref=f5e20]:
+        - listitem [ref=f5e21]:
+          - link "home" [ref=f5e22] [cursor=pointer]:
+            - /url: index.htm
+        - listitem [ref=f5e23]:
+          - link "about" [ref=f5e24] [cursor=pointer]:
+            - /url: about.htm
+        - listitem [ref=f5e25]:
+          - link "contact" [ref=f5e26] [cursor=pointer]:
+            - /url: contact.htm
+    - generic [ref=f5e27]:
+      - generic [ref=f5e28]:
+        - paragraph [ref=f5e29]: Welcome MCP Tester
+        - heading "Account Services" [level=2] [ref=f5e30]
+        - list [ref=f5e31]:
+          - listitem [ref=f5e32]:
+            - link "Open New Account" [ref=f5e33] [cursor=pointer]:
+              - /url: openaccount.htm
+          - listitem [ref=f5e34]:
+            - link "Accounts Overview" [ref=f5e35] [cursor=pointer]:
+              - /url: overview.htm
+          - listitem [ref=f5e36]:
+            - link "Transfer Funds" [ref=f5e37] [cursor=pointer]:
+              - /url: transfer.htm
+          - listitem [ref=f5e38]:
+            - link "Bill Pay" [ref=f5e39] [cursor=pointer]:
+              - /url: billpay.htm
+          - listitem [ref=f5e40]:
+            - link "Find Transactions" [ref=f5e41] [cursor=pointer]:
+              - /url: findtrans.htm
+          - listitem [ref=f5e42]:
+            - link "Update Contact Info" [ref=f5e43] [cursor=pointer]:
+              - /url: updateprofile.htm
+          - listitem [ref=f5e44]:
+            - link "Request Loan" [ref=f5e45] [cursor=pointer]:
+              - /url: requestloan.htm
+          - listitem [ref=f5e46]:
+            - link "Log Out" [ref=f5e47] [cursor=pointer]:
+              - /url: logout.htm
+      - generic [ref=f5e48]:
+        - list [ref=f5e50]:
+          - listitem [ref=f5e51]: ATM Services
+          - listitem [ref=f5e52]:
+            - link "Withdraw Funds" [ref=f5e53] [cursor=pointer]:
+              - /url: services/ParaBank?wsdl
+          - listitem [ref=f5e54]:
+            - link "Transfer Funds" [ref=f5e55] [cursor=pointer]:
+              - /url: services/ParaBank?wsdl
+          - listitem [ref=f5e56]:
+            - link "Check Balances" [ref=f5e57] [cursor=pointer]:
+              - /url: services/ParaBank?wsdl
+          - listitem [ref=f5e58]:
+            - link "Make Deposits" [ref=f5e59] [cursor=pointer]:
+              - /url: services/ParaBank?wsdl
+        - list [ref=f5e60]:
+          - listitem [ref=f5e61]: Online Services
+          - listitem [ref=f5e62]:
+            - link "Bill Pay" [ref=f5e63] [cursor=pointer]:
+              - /url: services/bank?_wadl&_type=xml
+          - listitem [ref=f5e64]:
+            - link "Account History" [ref=f5e65] [cursor=pointer]:
+              - /url: services/bank?_wadl&_type=xml
+          - listitem [ref=f5e66]:
+            - link "Transfer Funds" [ref=f5e67] [cursor=pointer]:
+              - /url: services/bank?_wadl&_type=xml
+        - paragraph [ref=f5e68]:
+          - link "Read More" [ref=f5e69] [cursor=pointer]:
+            - /url: services.htm
+        - heading "Latest News" [level=4] [ref=f5e70]
+        - list [ref=f5e71]:
+          - listitem [ref=f5e72]: 09/18/2026
+          - listitem [ref=f5e73]:
+            - link "ParaBank Is Now Re-Opened" [ref=f5e74] [cursor=pointer]:
+              - /url: news.htm#6
+          - listitem [ref=f5e75]:
+            - link "New! Online Bill Pay" [ref=f5e76] [cursor=pointer]:
+              - /url: news.htm#5
+          - listitem [ref=f5e77]:
+            - link "New! Online Account Transfers" [ref=f5e78] [cursor=pointer]:
+              - /url: news.htm#4
+        - paragraph [ref=f5e79]:
+          - link "Read More" [ref=f5e80] [cursor=pointer]:
+            - /url: news.htm
+  - generic [ref=f5e82]:
+    - list [ref=f5e83]:
+      - listitem [ref=f5e84]:
+        - link "Home" [ref=f5e85] [cursor=pointer]:
+          - /url: index.htm
+        - text: "|"
+      - listitem [ref=f5e86]:
+        - link "About Us" [ref=f5e87] [cursor=pointer]:
+          - /url: about.htm
+        - text: "|"
+      - listitem [ref=f5e88]:
+        - link "Services" [ref=f5e89] [cursor=pointer]:
+          - /url: services.htm
+        - text: "|"
+      - listitem [ref=f5e90]:
+        - link "Products" [ref=f5e91] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/products.jsp
+        - text: "|"
+      - listitem [ref=f5e92]:
+        - link "Locations" [ref=f5e93] [cursor=pointer]:
+          - /url: http://www.parasoft.com/jsp/pr/contacts.jsp
+        - text: "|"
+      - listitem [ref=f5e94]:
+        - link "Forum" [ref=f5e95] [cursor=pointer]:
+          - /url: http://forums.parasoft.com/
+        - text: "|"
+      - listitem [ref=f5e96]:
+        - link "Site Map" [ref=f5e97] [cursor=pointer]:
+          - /url: sitemap.htm
+        - text: "|"
+      - listitem [ref=f5e98]:
+        - link "Contact Us" [ref=f5e99] [cursor=pointer]:
+          - /url: contact.htm
+    - paragraph [ref=f5e100]: © Parasoft. All rights reserved.
+    - list [ref=f5e101]:
+      - listitem [ref=f5e102]: "Visit us at:"
+      - listitem [ref=f5e103]:
+        - link "www.parasoft.com" [ref=f5e104] [cursor=pointer]:
+          - /url: http://www.parasoft.com/

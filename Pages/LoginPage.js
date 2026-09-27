@@ -3,11 +3,15 @@ export class LoginPage {
     constructor(page) {
         this.page = page;
 
-        this.usernameInput = page.locator('#username');
-        this.passwordInput = page.locator('#password');
-        this.loginButton = page.locator('input[type="submit"]');
-        this.forgotLoginLink = page.locator('a[href="/forgot-password"]');
-        this.registerLink = page.locator('//*[@id="loginPanel"]/p[2]/a');
+        // The live login form exposes two unnamed textboxes with no labels or placeholders.
+        this.usernameInput = page.getByRole('textbox').nth(0);
+        this.passwordInput = page.getByRole('textbox').nth(1);
+        this.loginButton = page.getByRole('button', { name: 'Log In', exact: true });
+        this.logoutLink = page.getByRole('link', { name: 'Log Out', exact: true });
+        this.forgotLoginLink = page.getByRole('link', { name: 'Forgot login info?', exact: true });
+        this.registerLink = page.getByRole('link', { name: 'Register', exact: true });
+        this.loginErrorHeading = page.getByRole('heading', { name: 'Error!', exact: true });
+        this.invalidCredentialsMessage = page.getByText('The username and password could not be verified.', { exact: true });
     }
 
     async navigateToSite() {
@@ -24,6 +28,10 @@ export class LoginPage {
 
     async clickLoginButton() {
         await this.loginButton.click();
+    }
+
+    async logout() {
+        await this.logoutLink.click();
     }
 
     async clickForgotLoginLink() {

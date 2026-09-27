@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
+import { randomBytes } from 'node:crypto';
 import { LoginPage } from '../Pages/LoginPage';
 import { RegisterPage } from '../Pages/RegisterPage';
 
-
+// Registration tests all start from the same flow: load the app, open the register page, and fill user details.
 test.describe('ParaBank Registration', () => {
 
     let loginPage;
     let registerPage;
 
     test.beforeEach(async ({ page }) => {
-
+        // Each test gets a fresh browser state and a clean registration form.
         loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);
 
@@ -17,10 +18,9 @@ test.describe('ParaBank Registration', () => {
         await loginPage.clickRegisterLink();
     });
 
-
+    // TC01: A fully valid registration request should create a new customer account.
     test('TC01 - Register with valid details', async ({ page }) => {
-
-        const username = `naveen_${Date.now()}`;
+        const username = `naveen_${randomBytes(6).toString('hex')}`;
 
         await registerPage.fillPersonalInfo(
             'Naveen',
@@ -44,12 +44,11 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(page.locator('#rightPanel h1')).toContainText('Welcome');
+        await expect(registerPage.welcomeHeading).toBeVisible();
     });
 
-
+    // TC02: The first name is required; leaving it empty should show a field validation error.
     test('TC02 - Register with empty first name', async ({ page }) => {
-
         const username = `naveen_${Date.now()}`;
 
         await registerPage.fillPersonalInfo(
@@ -74,14 +73,11 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(
-            page.locator('#customer\\.firstName\\.errors')
-        ).toBeVisible();
+        await expect(registerPage.firstNameRequiredMessage).toBeVisible();
     });
 
-
+    // TC03: A missing last name should fail validation before account creation.
     test('TC03 - Register with empty last name', async ({ page }) => {
-
         const username = `naveen_${Date.now()}`;
 
         await registerPage.fillPersonalInfo(
@@ -106,14 +102,11 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(
-            page.locator('#customer\\.lastName\\.errors')
-        ).toBeVisible();
+        await expect(registerPage.lastNameRequiredMessage).toBeVisible();
     });
 
-
+    // TC04: Username is mandatory; a blank username should be rejected on submit.
     test('TC04 - Register with empty username', async ({ page }) => {
-
         await registerPage.fillPersonalInfo(
             'Naveen',
             'Pargi',
@@ -136,14 +129,11 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(
-            page.locator('#customer\\.username\\.errors')
-        ).toBeVisible();
+        await expect(registerPage.usernameRequiredMessage).toBeVisible();
     });
 
-
+    // TC05: Repeated password must match; a mismatch should trigger validation.
     test('TC05 - Register with mismatched passwords', async ({ page }) => {
-
         const username = `naveen_${Date.now()}`;
 
         await registerPage.fillPersonalInfo(
@@ -168,16 +158,14 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(
-            page.locator('#repeatedPassword\\.errors')
-        ).toBeVisible();
+        await expect(registerPage.passwordMismatchMessage).toBeVisible();
     });
 
+    // TC06: Username uniqueness is enforced; registering the same name twice should fail.
     test('TC06 - Register with a username that already exists', async ({ page }) => {
-
         const username = `naveen_${Date.now()}`;
 
-        // First registration - succeeds and consumes the username
+        // First registration succeeds and consumes the username.
         await registerPage.fillPersonalInfo(
             'Naveen',
             'Pargi',
@@ -199,9 +187,9 @@ test.describe('ParaBank Registration', () => {
         );
 
         await registerPage.clickRegisterButton();
-        await expect(page.locator('#rightPanel h1')).toContainText('Welcome');
+        await expect(registerPage.welcomeHeading).toBeVisible();
 
-        // Second registration with the same username should fail on server-side validation
+        // Second attempt uses the same username and should fail with a server-side validation error.
         await page.goto('https://parabank.parasoft.com/parabank/register.htm');
 
         await registerPage.fillPersonalInfo(
@@ -226,13 +214,7 @@ test.describe('ParaBank Registration', () => {
 
         await registerPage.clickRegisterButton();
 
-        await expect(
-            page.locator('#customer\\.username\\.errors')
-        ).toBeVisible();
-
-        await expect(
-            page.locator('#customer\\.username\\.errors')
-        ).toContainText('already exists');
+        await expect(registerPage.usernameExistsMessage).toBeVisible();
     });
 
 });
