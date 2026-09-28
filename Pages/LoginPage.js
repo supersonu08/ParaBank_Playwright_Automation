@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test';
+
 export class LoginPage {
 
     constructor(page) {
@@ -14,12 +16,10 @@ export class LoginPage {
     }
 
     async navigateToSite() {
-        await this.page.goto("https://parabank.parasoft.com/parabank/index.htm");
-        await Promise.all([
-            this.usernameInput.waitFor({ state: 'visible' }),
-            this.passwordInput.waitFor({ state: 'visible' }),
-            this.registerLink.waitFor({ state: 'visible' })
-        ]);
+        await this.page.goto("https://parabank.parasoft.com/parabank/index.htm", { waitUntil: 'domcontentloaded' });
+        await expect(this.usernameInput).toBeVisible({ timeout: 30000 });
+        await expect(this.passwordInput).toBeVisible({ timeout: 30000 });
+        await expect(this.registerLink).toBeVisible({ timeout: 30000 });
     }
 
     async enterUsername(username) {

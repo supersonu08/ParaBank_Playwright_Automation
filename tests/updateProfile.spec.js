@@ -1,17 +1,34 @@
 import { test, expect } from '@playwright/test';
+import { randomBytes } from 'node:crypto';
 import { LoginPage } from '../Pages/LoginPage';
+import { RegisterPage } from '../Pages/RegisterPage';
 import { UpdateProfilePage } from '../Pages/UpdateProfilePage';
 
 const createUser = async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const username = process.env.PARABANK_USERNAME || 'john';
-    const password = process.env.PARABANK_PASSWORD || 'demo';
+    const username = process.env.PARABANK_USERNAME;
+    const password = process.env.PARABANK_PASSWORD;
 
     await loginPage.navigateToSite();
-    await loginPage.login(username, password);
-    await page.waitForURL(/overview\.htm/);
 
-    return { username };
+    if (username && password) {
+        await loginPage.login(username, password);
+        await page.waitForURL(/overview\.htm/);
+        return { username };
+    }
+
+    await loginPage.clickRegisterLink();
+    const registerPage = new RegisterPage(page);
+    const newUsername = `profile_${randomBytes(6).toString('hex')}`;
+    const newPassword = 'Password@123';
+
+    await registerPage.fillPersonalInfo('Test', 'User', '123 Main Street', 'Jaipur');
+    await registerPage.fillAddressInfo('Rajasthan', '302001', '9876543210', '123456789');
+    await registerPage.fillCredentials(newUsername, newPassword, newPassword);
+    await registerPage.clickRegisterButton();
+    await expect(registerPage.welcomeHeading).toBeVisible();
+
+    return { username: newUsername };
 };
 
 test.describe('Update Profile', () => {

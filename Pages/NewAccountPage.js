@@ -30,11 +30,8 @@ export class NewAccountPage {
 
     async clickSIDEOpenNewAccountButton() {
         await this.sideOpenNewAccountlink.click();
-        await this.fromAccountDropdown
-            .locator('option')
-            .filter({ hasText: /^\d+$/ })
-            .first()
-            .waitFor({ state: 'attached' });
+        await expect(this.fromAccountDropdown).toBeVisible({ timeout: 30000 });
+        await expect(this.fromAccountDropdown.locator('option').filter({ hasText: /^\d+$/ })).not.toHaveCount(0, { timeout: 30000 });
     }
 
     async clickNewACCbtn() {
