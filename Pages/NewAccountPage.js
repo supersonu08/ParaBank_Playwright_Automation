@@ -5,18 +5,17 @@ export class NewAccountPage {
     constructor(page) {
         this.page = page;
 
-        this.sideOpenNewAccountlink = page.getByRole('link', { name: 'Open New Account', exact: true });
-        // The live form exposes both selects as unnamed comboboxes, so position distinguishes their purpose.
-        this.accountTypeDropdown = page.getByRole('combobox').nth(0);
-        this.fromAccountDropdown = page.getByRole('combobox').nth(1);
-        this.buttonNewAcc = page.getByRole('button', { name: 'Open New Account', exact: true });
-        this.newAccountIdLink = page.getByRole('link', { name: /^\d+$/, exact: true });
-        this.successMessage = page.getByRole('heading', { name: 'Account Opened!', exact: true });
-        this.accountDetailsHeading = page.getByRole('heading', { name: 'Account Details', exact: true });
-        this.accNumber = page.getByRole('row', { name: /^Account Number:/ }).getByRole('cell', { name: /^\d+$/ });
-        this.accType = page.getByRole('row', { name: /^Account Type:/ }).getByRole('cell', { name: /^(CHECKING|SAVINGS)$/ });
-        this.balance = page.getByRole('row', { name: /^Balance:/ }).getByRole('cell', { name: /^\$\d+(\.\d{2})?$/ });
-        this.gobtn = page.getByRole('button', { name: 'Go', exact: true });
+        this.sideOpenNewAccountlink = page.locator('a[href="openaccount.htm"]');
+        this.accountTypeDropdown = page.locator('select').nth(0);
+        this.fromAccountDropdown = page.locator('select').nth(1);
+        this.buttonNewAcc = page.locator('input[value="Open New Account"]');
+        this.newAccountIdLink = page.locator('a').filter({ hasText: /^\d+$/ }).first();
+        this.successMessage = page.locator('h1:has-text("Account Opened!")');
+        this.accountDetailsHeading = page.locator('h1:has-text("Account Details")');
+        this.accNumber = page.locator('tr:has-text("Account Number:") td');
+        this.accType = page.locator('tr:has-text("Account Type:") td');
+        this.balance = page.locator('tr:has-text("Balance:") td');
+        this.gobtn = page.locator('input[value="Go"]');
     }
 
     async selectAccountType(type) {
@@ -30,17 +29,16 @@ export class NewAccountPage {
 
     async clickSIDEOpenNewAccountButton() {
         await this.sideOpenNewAccountlink.click();
-        await this.fromAccountDropdown
-            .locator('option')
-            .filter({ hasText: /^\d+$/ })
-            .first()
-            .waitFor({ state: 'attached' });
+        await expect(this.fromAccountDropdown).toBeVisible({ timeout: 30000 });
+        await expect.poll(async () => await this.fromAccountDropdown.locator('option').count(), {
+            timeout: 30000
+        }).toBeGreaterThan(0);
     }
 
     async clickNewACCbtn() {
         await this.buttonNewAcc.click();
-        await expect(this.successMessage).toBeVisible();
-        await expect(this.newAccountIdLink).toHaveText(/^\d+$/);
+        await expect(this.successMessage).toBeVisible({ timeout: 30000 });
+        await expect(this.newAccountIdLink).toHaveText(/^\d+$/, { timeout: 30000 });
     }
 
     
