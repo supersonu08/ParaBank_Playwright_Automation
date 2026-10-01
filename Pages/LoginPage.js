@@ -11,12 +11,12 @@ export class LoginPage {
         this.registerLink = page.getByRole('link', { name: 'Register', exact: true });
         this.loginErrorHeading = page.getByRole('heading', { name: 'Error!', exact: true });
         this.invalidCredentialsMessage = page.getByText('The username and password could not be verified.', { exact: true });
+        this.securityVerificationHeading = page.getByRole('heading', { name: /^Performing security verification/ });
     }
 
     async navigateToSite() {
-
-         await this.page.goto("http://localhost:9090/parabank");
-         await Promise.all([
+        await this.page.goto('index.htm');
+        await Promise.all([
             this.usernameInput.waitFor({ state: 'visible' }),
             this.passwordInput.waitFor({ state: 'visible' }),
             this.registerLink.waitFor({ state: 'visible' })

@@ -110,11 +110,11 @@ test.describe('ParaBank Login', () => {
     test('TC17 - Direct navigation to overview without a session redirects to login or security gate', async ({ page }) => {
         const loginPage = new LoginPage(page);
 
-        await page.goto('https://parabank.parasoft.com/parabank/overview.htm');
+        await page.goto('overview.htm');
 
         await expect.poll(async () => {
             const loginVisible = await loginPage.usernameInput.isVisible().catch(() => false);
-            const challengeVisible = await page.locator('h1:has-text("Performing security verification")').isVisible().catch(() => false);
+            const challengeVisible = await loginPage.securityVerificationHeading.isVisible().catch(() => false);
             const isLoginUrl = /\/index\.htm$|\/login\./i.test(page.url());
             return loginVisible || challengeVisible || isLoginUrl;
         }, {

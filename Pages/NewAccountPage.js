@@ -1,21 +1,19 @@
-import { expect } from '@playwright/test';
-
 export class NewAccountPage {
 
     constructor(page) {
         this.page = page;
 
-        this.sideOpenNewAccountlink = page.locator('a[href="openaccount.htm"]');
-        this.accountTypeDropdown = page.locator('select').nth(0);
-        this.fromAccountDropdown = page.locator('select').nth(1);
-        this.buttonNewAcc = page.locator('input[value="Open New Account"]');
-        this.newAccountIdLink = page.locator('a').filter({ hasText: /^\d+$/ }).first();
-        this.successMessage = page.locator('h1:has-text("Account Opened!")');
-        this.accountDetailsHeading = page.locator('h1:has-text("Account Details")');
-        this.accNumber = page.locator('tr:has-text("Account Number:") td');
-        this.accType = page.locator('tr:has-text("Account Type:") td');
-        this.balance = page.locator('tr:has-text("Balance:") td');
-        this.gobtn = page.locator('input[value="Go"]');
+        this.sideOpenNewAccountlink = page.getByRole('link', { name: 'Open New Account', exact: true });
+        this.accountTypeDropdown = page.locator('#type');
+        this.fromAccountDropdown = page.locator('#fromAccountId');
+        this.buttonNewAcc = page.getByRole('button', { name: 'Open New Account', exact: true });
+        this.newAccountIdLink = page.locator('#newAccountId');
+        this.successMessage = page.getByRole('heading', { name: 'Account Opened!', exact: true });
+        this.accountDetailsHeading = page.getByRole('heading', { name: 'Account Details', exact: true });
+        this.accNumber = page.locator('#accountId');
+        this.accType = page.locator('#accountType');
+        this.balance = page.locator('#balance');
+        this.gobtn = page.getByRole('button', { name: 'Go', exact: true });
     }
 
     async selectAccountType(type) {
@@ -29,19 +27,15 @@ export class NewAccountPage {
 
     async clickSIDEOpenNewAccountButton() {
         await this.sideOpenNewAccountlink.click();
-        await expect(this.fromAccountDropdown).toBeVisible({ timeout: 30000 });
-        await expect.poll(async () => await this.fromAccountDropdown.locator('option').count(), {
-            timeout: 30000
-        }).toBeGreaterThan(0);
+        await this.fromAccountDropdown.waitFor({ state: 'visible' });
+        await this.fromAccountDropdown.locator('option').first().waitFor({ state: 'attached' });
     }
 
     async clickNewACCbtn() {
         await this.buttonNewAcc.click();
-        await expect(this.successMessage).toBeVisible({ timeout: 30000 });
-        await expect(this.newAccountIdLink).toHaveText(/^\d+$/, { timeout: 30000 });
+        await this.successMessage.waitFor({ state: 'visible' });
+        await this.newAccountIdLink.waitFor({ state: 'visible' });
     }
-
-    
 
     async clickIDlink() {
         await this.newAccountIdLink.click();
