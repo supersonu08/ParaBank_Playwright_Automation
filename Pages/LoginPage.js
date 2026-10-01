@@ -1,5 +1,3 @@
-import { expect } from '@playwright/test';
-
 export class LoginPage {
 
     constructor(page) {
@@ -13,13 +11,16 @@ export class LoginPage {
         this.registerLink = page.getByRole('link', { name: 'Register', exact: true });
         this.loginErrorHeading = page.getByRole('heading', { name: 'Error!', exact: true });
         this.invalidCredentialsMessage = page.getByText('The username and password could not be verified.', { exact: true });
+        this.securityVerificationHeading = page.getByRole('heading', { name: /^Performing security verification/ });
     }
 
     async navigateToSite() {
-        await this.page.goto("https://parabank.parasoft.com/parabank/index.htm", { waitUntil: 'domcontentloaded' });
-        await expect(this.usernameInput).toBeVisible({ timeout: 30000 });
-        await expect(this.passwordInput).toBeVisible({ timeout: 30000 });
-        await expect(this.registerLink).toBeVisible({ timeout: 30000 });
+        await this.page.goto('index.htm');
+        await Promise.all([
+            this.usernameInput.waitFor({ state: 'visible' }),
+            this.passwordInput.waitFor({ state: 'visible' }),
+            this.registerLink.waitFor({ state: 'visible' })
+        ]);
     }
 
     async enterUsername(username) {

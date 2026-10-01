@@ -2,11 +2,11 @@ export class RequestLoanPage {
     constructor(page) {
         this.page = page;
 
-        this.navLink = page.locator('a[href="requestloan.htm"]');
+        this.navLink = page.getByRole('link', { name: 'Request Loan', exact: true });
         this.amountInput = page.locator('#amount');
         this.downPaymentInput = page.locator('#downPayment');
         this.fromAccountId = page.locator('#fromAccountId');
-        this.applyButton = page.locator('input[value="Apply Now"]');
+        this.applyButton = page.getByRole('button', { name: 'Apply Now', exact: true });
         this.resultHeading = page.getByRole('heading', { name: 'Loan Request Processed', exact: true });
         this.approvedStatus = page.getByRole('row', { name: 'Status: Approved', exact: true });
         this.deniedStatus = page.getByRole('row', { name: 'Status: Denied', exact: true });
@@ -15,8 +15,7 @@ export class RequestLoanPage {
     }
 
     async open() {
-        await this.page.goto('https://parabank.parasoft.com/parabank/requestloan.htm');
-        await this.page.waitForURL(/requestloan\.htm/);
+        await this.page.goto('requestloan.htm');
         await this.amountInput.waitFor({ state: 'visible' });
         await this.fromAccountId.locator('option').first().waitFor({ state: 'attached' });
     }
@@ -29,6 +28,6 @@ export class RequestLoanPage {
     }
 
     async getResultText() {
-        return (await this.resultText.textContent()).trim();
+        return (await this.resultHeading.textContent())?.trim() ?? '';
     }
 }

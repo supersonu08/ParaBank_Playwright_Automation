@@ -190,7 +190,7 @@ test.describe('ParaBank Registration', () => {
         await expect(registerPage.welcomeHeading).toBeVisible();
 
         // Second attempt uses the same username and should fail with a server-side validation error.
-        await page.goto('https://parabank.parasoft.com/parabank/register.htm');
+        await page.goto('register.htm');
 
         await registerPage.fillPersonalInfo(
             'Naveen',

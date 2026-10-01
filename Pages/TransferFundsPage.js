@@ -1,13 +1,10 @@
-import { expect } from '@playwright/test';
-
 export class TransferFundsPage {
     constructor(page) {
         this.page = page;
 
-        this.amountInput = page.getByRole('textbox');
-        // The live form exposes both account selects as unnamed comboboxes.
-        this.fromAccountId = page.getByRole('combobox').nth(0);
-        this.toAccountId = page.getByRole('combobox').nth(1);
+        this.amountInput = page.locator('#amount');
+        this.fromAccountId = page.locator('#fromAccountId');
+        this.toAccountId = page.locator('#toAccountId');
         this.transferButton = page.getByRole('button', { name: 'Transfer', exact: true });
         this.resultPanel = page.getByRole('heading', { name: 'Transfer Complete!', exact: true });
         this.transferSummary = page.getByText('has been transferred from account');
@@ -17,10 +14,10 @@ export class TransferFundsPage {
     }
 
     async open() {
-        await this.page.goto('https://parabank.parasoft.com/parabank/transfer.htm');
-        await expect(this.amountInput).toBeVisible();
-        await expect(this.fromAccountId.getByRole('option')).not.toHaveCount(0);
-        await expect(this.toAccountId.getByRole('option')).not.toHaveCount(0);
+        await this.page.goto('transfer.htm');
+        await this.amountInput.waitFor({ state: 'visible' });
+        await this.fromAccountId.locator('option').first().waitFor({ state: 'attached' });
+        await this.toAccountId.locator('option').first().waitFor({ state: 'attached' });
     }
 
     async transfer(amount, fromAccountId, toAccountId) {

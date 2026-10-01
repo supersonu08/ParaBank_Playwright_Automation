@@ -1,5 +1,3 @@
-import { expect } from '@playwright/test';
-
 export class UpdateProfilePage {
     constructor(page) {
         this.page = page;
@@ -18,8 +16,8 @@ export class UpdateProfilePage {
     }
 
     async open() {
-        await this.page.goto('https://parabank.parasoft.com/parabank/updateprofile.htm');
-        await expect(this.firstName).toHaveValue(/\S+/);
+        await this.page.goto('updateprofile.htm');
+        await this.firstName.waitFor({ state: 'visible' });
     }
 
     async fillContactInfo({

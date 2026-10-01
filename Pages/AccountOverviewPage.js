@@ -18,7 +18,7 @@ export class AccountOverviewPage {
 
     getBalanceForAccount(accountId) {
         const row = this.getRowForAccount(accountId);
-        // Balance and available amount can have identical names, so use their table-column order.
+        // Balance and available are distinct table columns with identical row-level names.
         return row.getByRole('cell').nth(1);
     }
 
