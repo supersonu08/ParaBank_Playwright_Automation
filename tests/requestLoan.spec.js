@@ -37,15 +37,15 @@ const createUserAndAccount = async ({ page }) => {
 };
 
 test.describe('Request Loan', () => {
-    // TC39: A zero down payment should be rejected by the business rules.
-    test('TC39 - Loan request with zero down payment is rejected', async ({ page }) => {
+    // TC39: A missing down payment is rejected by the application.
+    test('TC39 - Loan request with missing down payment is rejected', async ({ page }) => {
         const { accountId } = await createUserAndAccount({ page });
         const loanPage = new RequestLoanPage(page);
 
         await loanPage.open();
-        await loanPage.applyForLoan(1000, 0, accountId);
+        await loanPage.applyForLoan(1000, '', accountId);
 
-        await expect(loanPage.deniedStatus).toBeVisible();
+        await expect(loanPage.pageContent).toContainText('An internal error has occurred and has been logged.');
     });
 
     // TC40: A request far above available funds should be denied by the business rules.

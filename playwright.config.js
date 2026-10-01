@@ -24,12 +24,12 @@ export default defineConfig({
   },
   reporter: [['html'],
              ['allure-playwright', { outputFolder: 'allure-results' }]],
-  webServer: {
-    command: 'docker rm -f parabank 2>nul || true && docker run -d --name parabank -p 9090:8080 parasoft/parabank',
-    url: 'http://localhost:9090/parabank/index.htm',
-    reuseExistingServer: true,
-    timeout: 180000,
-  },
+ webServer: {
+  command: 'docker run --rm --name parabank -p 9090:8080 parasoft/parabank',
+  url: 'http://localhost:9090/parabank/index.htm',
+  reuseExistingServer: !process.env.CI,
+  timeout: 180000,
+},
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:9090/parabank/',
     trace: 'retain-on-failure',
