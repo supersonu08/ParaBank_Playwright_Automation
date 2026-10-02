@@ -1,6 +1,8 @@
 # ParaBank Test Automation Framework
 
 End-to-end UI automation suite for the [ParaBank](https://parabank.parasoft.com/) demo banking application, built with **Playwright** and **JavaScript** using the **Page Object Model** design pattern. The application under test runs locally in **Docker** for a stable, repeatable test environment.
+- CI pipeline with GitHub Actions: starts ParaBank in Docker, runs the suite, uploads the HTML report and traces
+- Stable test runs: unique test data per run, no hard waits, retries and trace-on-failure enabled
 
 ## Highlights
 - 42 automated test cases across 8 spec files
