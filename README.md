@@ -1,8 +1,16 @@
-# ParaBank Playwright Automation
+# ParaBank Test Automation Framework
 
-End-to-end UI test automation framework for [ParaBank](https://parabank.parasoft.com/parabank/index.htm), a publicly hosted online banking demo application, built with **Playwright** and **JavaScript** using the **Page Object Model**.
+End-to-end UI automation suite for the [ParaBank](https://parabank.parasoft.com/) demo banking application, built with **Playwright** and **JavaScript** using the **Page Object Model** design pattern. The application under test runs locally in **Docker** for a stable, repeatable test environment.
 
-The suite validates core banking workflows: registration, login, account creation, fund transfers, bill payments, transaction search, profile updates, and loan requests — with both positive and negative scenarios for each.
+## Highlights
+- 42 automated test cases across 8 spec files
+- 9 reusable page objects following the Page Object Model
+- Covers the core banking flows: registration, login, open new account, funds transfer, bill pay, find transactions, update profile, and request loan
+- Dockerized application under test (`parasoft/parabank`)
+- HTML reports with screenshots, videos, and traces on failure
+
+## Tech Stack
+Playwright · JavaScript (Node.js) · Docker · Git/GitHub.
 
 ---
 
